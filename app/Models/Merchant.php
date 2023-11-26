@@ -20,10 +20,11 @@ class Merchant extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'domain',
         'display_name',
         'turn_customers_into_affiliates',
-        'default_commission_rate'
+        'default_commission_rate',
     ];
 
     public function user(): BelongsTo

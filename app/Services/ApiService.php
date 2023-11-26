@@ -19,11 +19,12 @@ class ApiService
      *
      * @return array{id: int, code: string}
      */
-    public function createDiscountCode(Merchant $merchant): array
+    public function createDiscountCode(): array
     {
+        $discountCode = rand(10,100);
+        
         return [
-            'id' => rand(0, 100000),
-            'code' => Str::uuid()
+            'code' => $discountCode,
         ];
     }
 
@@ -37,6 +38,10 @@ class ApiService
      */
     public function sendPayout(string $email, float $amount)
     {
-        //
+        if (rand(0, 1)) {
+            return;
+        }
+
+        throw new RuntimeException('Payout failed');
     }
 }
